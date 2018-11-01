@@ -1,10 +1,13 @@
 package ua.tania;
 
+import ua.tania.auxiliary.StudentContainer;
 import ua.tania.auxiliary.StudentQuality;
 import ua.tania.entity.Group;
+import ua.tania.entity.Professor;
 import ua.tania.entity.Student;
 
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -13,22 +16,20 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) {
-        Set<StudentQuality> qualities = new HashSet<>();
-        qualities.add(StudentQuality.WELL_MANNERED);
-        qualities.add(StudentQuality.SMART);
-        Student student1 = new Student("Tania", "Nebesna", qualities);
-        Set<StudentQuality> qualities2 = new HashSet<>();
-        qualities2.add(StudentQuality.RUDE);
-        qualities2.add(StudentQuality.SMART);
-        qualities2.add(StudentQuality.LEADERSHIP_ABILITY);
-        qualities2.add(StudentQuality.RESPONSIBLE);
-        qualities2.add(StudentQuality.WELL_MANNERED);
-        Student student2 = new Student("Vlad", "Ddd", qualities2);
         Group tm41 = new Group("TM-41");
-        tm41.getStudents().add(student1);
-        tm41.getStudents().add(student2);
-        Student result = tm41.chooseCaptain();
-        System.out.println(result.toString());
+        tm41.addStudent(StudentContainer.student1);
+        tm41.addStudent(StudentContainer.student2);
+        Student captain = tm41.chooseCaptain();
+        Professor professor1 = new Professor("Maxim", "Pryluchniy");
+
+        int action = 0;
+        Scanner scanner = new Scanner(System.in);
+        scanner.close();
+
+
+        System.out.println("The captain of the group has been chosen " + captain.toString());
+        System.out.println("In auditory are present next students: " + professor1.checkPresent(tm41));
+
 
     }
 }

@@ -2,8 +2,9 @@ package ua.tania.entity;
 
 import ua.tania.auxiliary.StudentQuality;
 
+
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -16,15 +17,15 @@ public class Student {
     private String name;
     private String surname;
     private int qualityScore;
-    private Set<StudentQuality> qualities = new HashSet<>();
+    private Set<StudentQuality> qualities;
     private boolean isCaptain;
 
 
-    public Student(String name, String surname, Set<StudentQuality> qualities) {
+    public Student(String name, String surname, StudentQuality...qualities) {
         this.id = idCount++;
         this.name = name;
         this.surname = surname;
-        this.qualities = qualities;
+        this.qualities = new HashSet<StudentQuality> (Arrays.asList(qualities));;
 
     }
 
@@ -78,11 +79,8 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname +
-                '}';
+        return "{id=" + id +
+                ", " + name + " " + surname +"}";
     }
 
     @Override

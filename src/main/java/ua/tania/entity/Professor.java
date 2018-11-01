@@ -1,7 +1,6 @@
 package ua.tania.entity;
 
-import ua.tania.auxiliary.Subject;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -12,7 +11,6 @@ public class Professor {
     private int id;
     private String name;
     private String surname;
-    private Subject subject;
 
     public Professor(String name, String surname) {
         this.id = idCounter++;
@@ -20,8 +18,15 @@ public class Professor {
         this.surname = surname;
     }
 
-/*    public List<Student> checkPresent(Group group) {
-        for (Student student : group.getStudents()) {
+    public List<Student> checkPresent(Group group) {
+        List<Student> result = new ArrayList<>();
+        List<Student> studentList = group.getStudents();
+        int forRandom = 0;
+        for(Student student : studentList) {
+            if ((forRandom = 0 + (int) (Math.random() * 3)) > 0) {
+                result.add(student);
+            }
         }
-    }*/
+        return result;
+    }
 }

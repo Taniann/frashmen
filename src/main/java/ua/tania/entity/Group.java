@@ -1,7 +1,6 @@
 package ua.tania.entity;
 
 import ua.tania.auxiliary.StudentQuality;
-import ua.tania.auxiliary.Subject;
 
 import java.util.*;
 
@@ -11,7 +10,6 @@ import java.util.*;
 public class Group {
     private String name;
     private List<Student> students = new ArrayList<>();
-    private List<Subject> subjects = new ArrayList<>();
 
     public Group(String name) {
         this.name = name;
@@ -33,12 +31,10 @@ public class Group {
         this.students = students;
     }
 
-    public List<Subject> getSubjects() {
-        return subjects;
-    }
-
-    public void setSubjects(List<Subject> subjects) {
-        this.subjects = subjects;
+    public void addStudent(Student student) {
+        if(!students.contains(student)) {
+            students.add(student);
+        }
     }
 
     public Student chooseCaptain() {

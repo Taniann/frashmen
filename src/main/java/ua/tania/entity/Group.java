@@ -50,7 +50,7 @@ public class Group {
                 student.setQualityScore(scoreResult);
                 scoreResult = 0;
             }
-         return students.stream().max(Comparator.comparingInt(s -> s.getQualityScore())).get();
+         return students.stream().max(Comparator.comparingInt(Student::getQualityScore)).get();
 
     }
 

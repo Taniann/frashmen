@@ -25,7 +25,7 @@ public class Student {
         this.id = idCount++;
         this.name = name;
         this.surname = surname;
-        this.qualities = new HashSet<StudentQuality> (Arrays.asList(qualities));;
+        this.qualities = new HashSet<> (Arrays.asList(qualities));
 
     }
 
